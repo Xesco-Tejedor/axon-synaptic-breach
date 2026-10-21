@@ -1322,7 +1322,7 @@ function boss4(dt){
   // deforma plataformas cercanas en trampas
   for (var j=0;j<L.plats.length;j++){
     var q=L.plats[j];
-    if (!q.gone && q.k==='solid' && q.h<=40 && q.y<1850 && q.y>250 && q.y>B.knotY-260 && q.y<B.knotY-40 && !q.trap){
+    if (!q.gone && q.k==='solid' && q.h<=40 && q.y<1850 && q.y>250 && q.y>B.knotY-170 && q.y<B.knotY-50 && !q.trap){
       q.trap=true; L.spikes.push({x:q.x+6,y:q.y-12,w:q.w-12,h:12,b4:true});
     }
   }

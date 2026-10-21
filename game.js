@@ -1254,7 +1254,7 @@ function boss1(dt){
 // Jefe 2: Falange Autoinmune
 function boss2(dt){
   B.pulseT-=dt;
-  B.x=480+Math.sin(B.t*0.8)*140;
+  B.x=480+Math.sin(B.t*0.8)*190;
   B.y=200+Math.sin(B.t*1.7)*50;
   if (B.phaseB===2 && B.pulseT<=0){
     B.pulseT=2.4;

@@ -268,6 +268,7 @@ function fly(L, x, y, range, amp){ L.foes.push({k:'flyer', x:x, y:y, w:28, h:24,
 function spikes(L, x, y, w){ L.spikes.push({x:x, y:y, w:w, h:18}); }
 function zone(L, k, x, y, w, h){ L.zones.push({x:x,y:y,w:w,h:h||400,k:k}); }
 function cpFlag(L, x, y){ L.cps.push({x:x,y:y,w:20,h:44,on:false}); }
+function hint(L, x, msg){ if(!L.hints) L.hints=[]; L.hints.push({x:x,msg:msg,on:false}); }
 
 var LEVEL_BUILDERS = { 1:[], 2:[], 3:[], 4:[], 5:[] };
 
@@ -283,6 +284,7 @@ LEVEL_BUILDERS[1][0] = function(L){ // 1.1 Plataformeo basico + polaridad en par
   var cw1=PL(x,180,20,280,'charged'); cw1.pol=1; L.plats.push(cw1);
   var cw2=PL(x+220,260,20,200,'charged'); cw2.pol=1; L.plats.push(cw2);
   atpArc(L,x+110,300,4,60);
+  hint(L, x-160, 'PARED CARGADA: MANTÉN LA DIRECCIÓN HACIA ELLA CON CARGA + Y SALTA PARA ADHERIRTE');
   L.plats.push(PL(x+20,460,300,80));
   x+=430;
   L.plats.push(PL(x,410,100)); L.plats.push(PL(x+170,360,100)); L.plats.push(PL(x+340,410,130));
@@ -1004,6 +1006,10 @@ function updatePlayer(dt){
       burst(cp.x+10,cp.y,th.accent,10);
     }
   }
+  if (L.hints) for (var h2=0;h2<L.hints.length;h2++){
+    var hn=L.hints[h2];
+    if (!hn.on && P.x+P.w > hn.x){ hn.on=true; setMsg(hn.msg); G.msgT=6; }
+  }
   // Meta
   if (L.goal && overlap(P,{x:L.goal.x,y:L.goal.y,w:44,h:68})) levelClear();
   // Jefe
@@ -1069,11 +1075,12 @@ function collideAxis(isX){
       // adhesion si la polaridad coincide
       if (P.pol===p.pol){
         P.cling=true; P.clingDir=(P.x+P.w/2 < p.x+p.w/2)?-1:1;
-        P.vy=clamp(P.vy,-1.2,1.2);
+        P.vy=clamp(P.vy,-8.6,1.2);
         P.jumps=P.canDjump?1:0;
       } else {
         P.vx = (P.x+P.w/2 < p.x+p.w/2)?-6:6; // repele
         sfx('zap');
+        if (G.msgT<=0) setMsg('CARGA OPUESTA: LA PARED TE REPELE. PULSA X O B PARA VOLVER A +');
       }
       if (P.x+P.w/2 < p.x+p.w/2) P.x=p.x-P.w; else P.x=p.x+p.w;
       continue;

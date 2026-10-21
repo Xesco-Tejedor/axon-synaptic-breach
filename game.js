@@ -205,7 +205,7 @@ var THEMES = {
       accent:'#8fe8ff', fog:'rgba(20,80,120,0.10)', name:'LA AUTOPISTA AXONAL',
       sub:'El sistema y la mielina' },
   2:{ sky0:'#170d12', sky1:'#33131f', glow:'#ff5f6e', plat:'#4a2430', platTop:'#8a4453',
-      accent:'#ffb3ba', fog:'rgba(120,30,45,0.12)', name:'LAS VIAS DESNUDAS',
+      accent:'#ffb3ba', fog:'rgba(120,30,45,0.12)', name:'LAS VÍAS DESNUDAS',
       sub:'Conduccion degradada' },
   3:{ sky0:'#141007', sky1:'#2b2110', glow:'#ffb347', plat:'#4a3a1a', platTop:'#96793a',
       accent:'#ffd98f', fog:'rgba(140,100,30,0.10)', name:'LA FORJA NEGRA DE DOPAMINA',
@@ -214,7 +214,7 @@ var THEMES = {
       accent:'#e4d2ff', fog:'rgba(90,60,140,0.12)', name:'EL LABERINTO ENREDADO',
       sub:'La estructura colapsa' },
   5:{ sky0:'#050608', sky1:'#101418', glow:'#ff4d4d', plat:'#1c2a30', platTop:'#3d5a64',
-      accent:'#ff9d9d', fog:'rgba(30,40,50,0.16)', name:'EL APAGON SINAPTICO',
+      accent:'#ff9d9d', fog:'rgba(30,40,50,0.16)', name:'EL APAGÓN SINÁPTICO',
       sub:'Relevo contra el apagado' }
 };
 function TH(){ return THEMES[G.phase]; }
@@ -222,20 +222,20 @@ function TH(){ return THEMES[G.phase]; }
 // ---------- Datos de fases / niveles ----------
 var PHASE_INFO = [
   { tit:'FASE 1', nom:'La Autopista Axonal',
-    intro:'Volt despierta en el soma de una neurona motora. La senal se disipa por microfisuras en las vainas. Aprende a polarizarte y a calcular la inercia.',
-    boss:'MACROFAGO PRIMARIO' },
-  { tit:'FASE 2', nom:'Las Vias Desnudas',
-    intro:'El revestimiento protector se deshilacha. La conduccion saltatoria falla: el movimiento ya no es fluido. Niebla, placas cicatriciales y patrullas aereas.',
+    intro:'Volt despierta en el soma de una neurona motora. La señal se disipa por microfisuras en las vainas. Aprende a polarizarte y a calcular la inercia.',
+    boss:'MACRÓFAGO PRIMARIO' },
+  { tit:'FASE 2', nom:'Las Vías Desnudas',
+    intro:'El revestimiento protector se deshilacha. La conducción saltatoria falla: el movimiento ya no es fluido. Niebla, placas cicatriciales y patrullas aéreas.',
     boss:'FALANGE AUTOINMUNE' },
   { tit:'FASE 3', nom:'La Forja Negra de Dopamina',
-    intro:'Las fabricas de la forja colapsan. Sin senal moduladora, las terminales entran en bloqueo o en vibracion descontrolada. El escenario tiembla.',
+    intro:'Las fábricas de la forja colapsan. Sin señal moduladora, las terminales entran en bloqueo o en vibración descontrolada. El escenario tiembla.',
     boss:'EL PRISMA DE LEWY' },
   { tit:'FASE 4', nom:'El Laberinto Enredado',
-    intro:'Los rieles de transporte se deshacen y la informacion espacial se reconfigura. Memoriza el trazado: lo que dejas de ver sigue estando ahi.',
+    intro:'Los rieles de transporte se deshacen y la información espacial se reconfigura. Memoriza el trazado: lo que dejas de ver sigue estando ahí.',
     boss:'EL NUDO NEUROFIBRILAR' },
-  { tit:'FASE 5', nom:'El Apagon Sinaptico',
-    intro:'Redes enteras se apagan a tu paso. Administra el oxigeno, encadena los peligros de todas las fases y reactiva las bombas de sodio-potasio.',
-    boss:'EL SILENCIO ISQUEMICO' }
+  { tit:'FASE 5', nom:'El Apagón Sináptico',
+    intro:'Redes enteras se apagan a tu paso. Administra el oxígeno, encadena los peligros de todas las fases y reactiva las bombas de sodio-potasio.',
+    boss:'EL SILENCIO ISQUÉMICO' }
 ];
 
 // ---------- Constructores de niveles ----------
@@ -273,7 +273,7 @@ var LEVEL_BUILDERS = { 1:[], 2:[], 3:[], 4:[], 5:[] };
 
 // ============ FASE 1: LA AUTOPISTA AXONAL ============
 LEVEL_BUILDERS[1][0] = function(L){ // 1.1 Plataformeo basico + polaridad en paredes
-  L.name='1.1 Nodulos de Ranvier'; L.len=3400;
+  L.name='1.1 Nódulos de Ranvier'; L.len=3400;
   L.plats.push(PL(-40,460,560,80));
   var x=620;
   var ys=[430,400,430,380,350,390,430];
@@ -293,7 +293,7 @@ LEVEL_BUILDERS[1][0] = function(L){ // 1.1 Plataformeo basico + polaridad en par
   cpFlag(L,x+560+40,416);
 };
 LEVEL_BUILDERS[1][1] = function(L){ // 1.2 Plataformas moviles (gliales) + picos
-  L.name='1.2 Glia Extraviada'; L.len=3600;
+  L.name='1.2 Glía Extraviada'; L.len=3600;
   L.plats.push(PL(-40,460,480,80));
   var x=560;
   for (var i=0;i<3;i++){
@@ -340,7 +340,7 @@ LEVEL_BUILDERS[1][2] = function(L){ // 1.3 Suelo quebradizo, inercia
   L.goal={x:x+340,y:392};
 };
 LEVEL_BUILDERS[1][3] = function(L){ // 1.4 Carrera contra la onda
-  L.name='1.4 Onda de Despolarizacion'; L.len=4200;
+  L.name='1.4 Onda de Despolarización'; L.len=4200;
   L.flags.chase=true; L.waveX=-300;
   L.plats.push(PL(-40,460,500,80));
   var x=560;
@@ -362,7 +362,7 @@ LEVEL_BUILDERS[1][3] = function(L){ // 1.4 Carrera contra la onda
   L.goal={x:x+300,y:392};
 };
 LEVEL_BUILDERS[1][4] = function(L){ // JEFE 1
-  L.name='JEFE: MACROFAGO PRIMARIO'; L.len=960; L.boss=1;
+  L.name='JEFE: MACRÓFAGO PRIMARIO'; L.len=960; L.boss=1;
   L.plats.push(PL(-40,470,1040,80));
   L.plats.push(PL(-40,0,40,540)); L.plats.push(PL(960,0,40,540));
   L.pads=[ {x:180,y:452,w:90,on:0}, {x:435,y:452,w:90,on:0}, {x:690,y:452,w:90,on:0} ];
@@ -370,9 +370,9 @@ LEVEL_BUILDERS[1][4] = function(L){ // JEFE 1
   L.goal=null;
 };
 
-// ============ FASE 2: LAS VIAS DESNUDAS ============
+// ============ FASE 2: LAS VÍAS DESNUDAS ============
 LEVEL_BUILDERS[2][0] = function(L){ // 2.1 Conduccion degradada (-40%)
-  L.name='2.1 Conduccion Degradada'; L.len=3600;
+  L.name='2.1 Conducción Degradada'; L.len=3600;
   L.plats.push(PL(-40,460,500,80));
   var x=560;
   zone(L,'slow',x-40,100,900,440);
@@ -491,7 +491,7 @@ LEVEL_BUILDERS[3][0] = function(L){ // 3.1 Temblor cada 6s
   L.goal={x:x+340,y:392};
 };
 LEVEL_BUILDERS[3][1] = function(L){ // 3.2 Bloques rompibles con inercia
-  L.name='3.2 Depositos de la Forja'; L.len=3700;
+  L.name='3.2 Depósitos de la Forja'; L.len=3700;
   L.flags.tremor=true;
   L.plats.push(PL(-40,460,480,80));
   var x=580;
@@ -584,7 +584,7 @@ LEVEL_BUILDERS[4][0] = function(L){ // 4.1 Microtubulos giratorios
   L.goal={x:x+340,y:392};
 };
 LEVEL_BUILDERS[4][1] = function(L){ // 4.2 Placas adhesivas
-  L.name='4.2 Placas Ambar'; L.len=3600;
+  L.name='4.2 Placas Ámbar'; L.len=3600;
   L.plats.push(PL(-40,460,2000,80));
   zone(L,'sticky',600,440,180,40);
   zone(L,'sticky',1050,440,220,40);
@@ -663,9 +663,9 @@ LEVEL_BUILDERS[4][4] = function(L){ // JEFE 4: torre vertical
   L.spawn={x:120,y:1800};
 };
 
-// ============ FASE 5: EL APAGON SINAPTICO ============
+// ============ FASE 5: EL APAGÓN SINÁPTICO ============
 LEVEL_BUILDERS[5][0] = function(L){ // 5.1 Vacios de presion
-  L.name='5.1 Vacios de Presion'; L.len=3600;
+  L.name='5.1 Vacíos de Presión'; L.len=3600;
   L.plats.push(PL(-40,460,460,80));
   var x=560;
   zone(L,'vacuum',x-30,100,1000,440);
@@ -686,7 +686,7 @@ LEVEL_BUILDERS[5][0] = function(L){ // 5.1 Vacios de presion
   L.goal={x:x+340,y:392};
 };
 LEVEL_BUILDERS[5][1] = function(L){ // 5.2 Fusion de peligros
-  L.name='5.2 Fusion de Peligros'; L.len=3900;
+  L.name='5.2 Fusión de Peligros'; L.len=3900;
   L.flags.tremor=true;
   L.plats.push(PL(-40,460,1800,80));
   zone(L,'slow',500,100,400,440);
@@ -746,7 +746,7 @@ LEVEL_BUILDERS[5][3] = function(L){ // 5.4 Guantelete final (fragmentos que se e
   L.goal={x:x+340,y:392};
 };
 LEVEL_BUILDERS[5][4] = function(L){ // JEFE FINAL
-  L.name='JEFE: EL SILENCIO ISQUEMICO'; L.len=960; L.boss=5;
+  L.name='JEFE: EL SILENCIO ISQUÉMICO'; L.len=960; L.boss=5;
   L.plats.push(PL(-40,470,1040,80));
   L.plats.push(PL(-40,0,40,540)); L.plats.push(PL(960,0,40,540));
   var pts=[ [180,380],[420,340],[660,380],[300,260],[560,240],[760,300],[120,300],[840,380] ];
@@ -1138,7 +1138,7 @@ function updateItems(dt){
     if (overlap(P,box)){
       it.got=true;
       if (it.k==='atp'){ G.atp++; G.levelAtp++; G.totalAtp++; sfx('atp'); burst(it.x,it.y,'#ffd166',6); }
-      else if (it.k==='o2'){ P.o2=1; sfx('cp'); setMsg('OXIGENO MITOCONDRIAL'); burst(it.x,it.y,'#7ef7ff',10); }
+      else if (it.k==='o2'){ P.o2=1; sfx('cp'); setMsg('OXÍGENO MITOCONDRIAL'); burst(it.x,it.y,'#7ef7ff',10); }
     }
   }
   for (var j=particles.length-1;j>=0;j--){
@@ -1199,7 +1199,7 @@ function boss1(dt){
     if (overlap(P,{x:B.x-30,y:B.y-46,w:60,h:40}) && P.vy>1){
       B.hp--; B.stun=0; B.inv=1; B.y=180; sfx('bosshit'); G.shake=0.6;
       burst(B.x,B.y-30,'#ff9d9d',20); P.vy=-9;
-      setMsg('IMPACTO EN EL NUCLEO ('+(3-B.hp)+'/3)');
+      setMsg('IMPACTO EN EL NÚCLEO ('+(3-B.hp)+'/3)');
       if (B.hp<=0){ bossWin(); return; }
     }
     return;
@@ -1230,7 +1230,7 @@ function boss1(dt){
         if (pd.on>0 && Math.abs(B.x-(pd.x+pd.w/2))<90) stunned=true;
       }
       G.shake=0.5;
-      if (stunned){ B.stun=3.2; setMsg('RECEPTOR SOBRECARGADO: GOLPEA EL NUCLEO'); sfx('clear'); }
+      if (stunned){ B.stun=3.2; setMsg('RECEPTOR SOBRECARGADO: GOLPEA EL NÚCLEO'); sfx('clear'); }
       else { B.state='rise'; B.st=1; }
       burst(B.x,440,'#ffb3ba',10);
     }
@@ -1261,7 +1261,7 @@ function boss2(dt){
       B.hp--; B.inv=1.2; G.shake=0.6; sfx('bosshit');
       burst(B.x,B.y-20,'#ffb3ba',22); P.vy=-11;
       setMsg('BRECHA EN LA CORAZA ('+(4-B.hp)+'/4)');
-      if (B.hp===2){ B.phaseB=2; setMsg('LA FALANGE EMITE PULSOS DE INFLAMACION'); }
+      if (B.hp===2){ B.phaseB=2; setMsg('LA FALANGE EMITE PULSOS DE INFLAMACIÓN'); }
       if (B.hp<=0){ bossWin(); return; }
     } else hurt(1,P.x<B.x?-5:5);
   }
@@ -1390,7 +1390,7 @@ function bossWin(){
 function levelClear(){
   var key='p'+G.phase+'l'+G.level;
   var atpPct=Math.round(100*G.levelAtp/Math.max(1,L.atpMax));
-  var grade = (G.deaths===0&&atpPct>=70)?'MATRICULA DE HONOR':(G.deaths<=2&&atpPct>=40)?'NOTABLE':'APROBADO';
+  var grade = (G.deaths===0&&atpPct>=70)?'MATRÍCULA DE HONOR':(G.deaths<=2&&atpPct>=40)?'NOTABLE':'APROBADO';
   var isBoss = L.boss>0;
   if (!G.best[key] || G.levelTime<G.best[key]) G.best[key]=Math.round(G.levelTime);
   // desbloquear siguiente
@@ -1840,7 +1840,7 @@ function drawHUD(){
     CX.fillStyle='#22303a'; CX.fillRect(W/2-110,52,220,12);
     CX.fillStyle=P.o2>0.3?'#7ef7ff':'#ff4d4d'; CX.fillRect(W/2-108,54,216*P.o2,8);
     CX.fillStyle='#cfe8f4'; CX.font='11px Courier New'; CX.textAlign='center';
-    CX.fillText('OXIGENO', W/2, 78);
+    CX.fillText('OXÍGENO', W/2, 78);
   }
   // barra jefe
   if (B&&!B.won&&B.state!=='intro'){
@@ -1894,10 +1894,10 @@ function drawPlay(){
 
 // ---------- Pantallas y menus ----------
 var MENU_TITLE=['JUGAR','GUIA','OPCIONES'];
-var MENU_PAUSE=['REANUDAR','GUIA','REINICIAR NIVEL','SALIR AL MENU'];
-var MENU_OPT=['SONIDO: ','CONTROLES TACTILES: ','BORRAR PROGRESO','VOLVER'];
+var MENU_PAUSE=['REANUDAR','GUIA','REINICIAR NIVEL','SALIR AL MENÚ'];
+var MENU_OPT=['SONIDO: ','CONTROLES TÁCTILES: ','BORRAR PROGRESO','VOLVER'];
 var OPT_TOUCH=['AUTO','SIEMPRE','NUNCA'];
-var MENU_CLEAR=['CONTINUAR','REPETIR NIVEL','SALIR AL MENU'];
+var MENU_CLEAR=['CONTINUAR','REPETIR NIVEL','SALIR AL MENÚ'];
 
 function menuItems(){
   if (G.screen==='title') return MENU_TITLE;
@@ -2007,57 +2007,57 @@ function handleTap(){
 
 // ---------- Guia in-app ----------
 var GUIDE=[
-  { t:'VOLT, PULSO BIOELECTRICO', lines:[
-    'Eres Volt, un pulso bioelectrico consciente atrapado',
-    'en un circuito neural de ficcion. Tu energia vital',
+  { t:'VOLT, PULSO BIOELÉCTRICO', lines:[
+    'Eres Volt, un pulso bioeléctrico consciente atrapado',
+    'en un circuito neural de ficción. Tu energía vital',
     'son 3 cargas. Si las pierdes, vuelves al relevo.',
     '',
-    'Recoge vesiculas de ATP para subir tu marca.',
+    'Recoge vesículas de ATP para subir tu marca.',
     'Al final de cada nivel recibes un grado:',
-    'APROBADO / NOTABLE / MATRICULA DE HONOR.' ]},
+    'APROBADO / NOTABLE / MATRÍCULA DE HONOR.' ]},
   { t:'CONTROLES', lines:[
-    'MOVERSE:      flechas o A/D        (tactil: < y >)',
-    'SALTAR:       espacio, W o Z       (tactil: A)',
+    'MOVERSE:      flechas o A/D        (táctil: < y >)',
+    'SALTAR:       espacio, W o Z       (táctil: A)',
     'DOBLE SALTO:  salta otra vez en el aire',
-    'SPRINT:       manten Shift         (tactil: R)',
-    'POLARIDAD:    X o J alterna + / -  (tactil: B)',
-    'PAUSA:        P o Escape           (tactil: II)' ]},
+    'SPRINT:       mantén Shift         (táctil: R)',
+    'POLARIDAD:    X o J alterna + / -  (táctil: B)',
+    'PAUSA:        P o Escape           (táctil: II)' ]},
   { t:'POLARIDAD + / -', lines:[
-    'Alterna la carga de Volt con el boton de accion.',
+    'Alterna la carga de Volt con el botón de acción.',
     '',
     '- Paredes marcadas con tu MISMA carga: te adhieres',
     '  y puedes saltar desde ellas.',
     '- Carga OPUESTA: la pared te repele.',
-    '- Enemigos con carga opuesta a la tuya: sobrecargalos',
-    '  de cerca con B para aturdirlos, o saltalos encima.' ]},
+    '- Enemigos con carga opuesta a la tuya: sobrecárgalos',
+    '  de cerca con B para aturdirlos, o sáltalos encima.' ]},
   { t:'TERMINALES Y RECEPTORES', lines:[
     'Los receptores del suelo se electrifican pulsando B',
-    'encima: usalos contra el Macrofago Primario.',
+    'encima: úsalos contra el Macrófago Primario.',
     '',
     'Las terminales inactivas se canalizan manteniendo B',
     'sobre ellas: recargan el circuito contra el Prisma.',
     '',
     'Las bombas Na/K piden pulsar B cuando el anillo',
-    'azul llega al anillo ambar. Tres aciertos por bomba.' ]},
+    'azul llega al anillo ámbar. Tres aciertos por bomba.' ]},
   { t:'CINCO ENTORNOS', lines:[
     'F1 La Autopista Axonal: aprende inercia y polaridad.',
-    'F2 Las Vias Desnudas: zonas lentas, niebla, mielina',
+    'F2 Las Vías Desnudas: zonas lentas, niebla, mielina',
     '   que se autodestruye.',
     'F3 La Forja Negra: temblor, bloques rompibles,',
     '   congelamiento (machaca salto o B para liberarte).',
     'F4 El Laberinto: puentes giratorios, placas adhesivas,',
-    '   plataformas que se vuelven invisibles (memorizalas),',
+    '   plataformas que se vuelven invisibles (memorízalas),',
     '   gravedad invertida.',
-    'F5 El Apagon: vacios de presion, anoxia (recarga O2),',
+    'F5 El Apagón: vacíos de presión, anoxia (recarga O2),',
     '   fragmentos que se extinguen tras pisarlos.' ]},
-  { t:'FICCION, NO MEDICINA', lines:[
-    'Axon: Synaptic Breach es una obra de ficcion.',
-    'Sus entornos, criaturas y mecanismos son fantasticos',
-    'y no describen procesos biologicos reales ni sirven',
-    'como informacion medica.',
+  { t:'FICCIÓN, NO MEDICINA', lines:[
+    'Axon: Synaptic Breach es una obra de ficción.',
+    'Sus entornos, criaturas y mecanismos son fantásticos',
+    'y no describen procesos biológicos reales ni sirven',
+    'como información médica.',
     '',
     'Juego original en HTML, CSS y JS. Sin recursos ajenos.',
-    'Musica y efectos sintetizados en tiempo real.' ]}
+    'Música y efectos sintetizados en tiempo real.' ]}
 ];
 
 function drawGuide(){
@@ -2095,10 +2095,10 @@ function drawTitle(){
   CX.fillStyle='#8fe8ff'; CX.font='bold 22px Courier New';
   CX.fillText('SYNAPTIC  BREACH', W/2, 185);
   CX.fillStyle='#5a7a8a'; CX.font='13px Courier New';
-  CX.fillText('un plataformas de ficcion bioelectrica', W/2, 212);
+  CX.fillText('un plataformas de ficción bioeléctrica', W/2, 212);
   drawMenu(MENU_TITLE,240);
   CX.fillStyle='#4a5f6d'; CX.font='12px Courier New';
-  CX.fillText('Obra de ficcion. No es contenido medico.', W/2, H-56);
+  CX.fillText('Obra de ficción. No es contenido médico.', W/2, H-56);
   CX.fillText('ATP total acumulado: '+G.totalAtp, W/2, H-34);
 }
 function drawMenu(items, y0){
@@ -2108,7 +2108,7 @@ function drawMenu(items, y0){
     var label=items[i];
     if (G.screen==='options'){
       if (i===0) label='SONIDO: '+(G.sound?'SI':'NO');
-      if (i===1) label='CONTROLES TACTILES: '+(G.touchUI==='on'?'SIEMPRE':G.touchUI==='off'?'NUNCA':'AUTO');
+      if (i===1) label='CONTROLES TÁCTILES: '+(G.touchUI==='on'?'SIEMPRE':G.touchUI==='off'?'NUNCA':'AUTO');
     }
     if (i===G.sel){
       CX.fillStyle='rgba(62,198,255,0.15)'; CX.fillRect(W/2-200,y-22,400,40);
@@ -2122,7 +2122,7 @@ function drawPhases(){
   CX.fillStyle='#05070d'; CX.fillRect(0,0,W,H);
   CX.textAlign='center';
   CX.fillStyle='#3ec6ff'; CX.font='bold 26px Courier New';
-  CX.fillText('SELECCION DE FASE', W/2, 70);
+  CX.fillText('SELECCIÓN DE FASE', W/2, 70);
   CX.font='14px Courier New'; CX.fillStyle='#5a7a8a';
   CX.fillText('flechas para elegir, Enter para jugar', W/2, 96);
   for (var p=1;p<=5;p++){
@@ -2185,7 +2185,7 @@ function drawClear(){
   CX.fillStyle=th.glow; CX.font='bold 34px Courier New';
   CX.fillText(ci.boss?'JEFE SUPERADO':'NIVEL SUPERADO', W/2, 130);
   CX.fillStyle='#cfe0ea'; CX.font='18px Courier New';
-  CX.fillText('Vesiculas ATP: '+ci.atp+'/'+ci.atpMax+' ('+ci.pct+'%)', W/2, 185);
+  CX.fillText('Vesículas ATP: '+ci.atp+'/'+ci.atpMax+' ('+ci.pct+'%)', W/2, 185);
   CX.fillText('Tiempo: '+ci.time+'s', W/2, 215);
   CX.fillStyle='#ffd166'; CX.font='bold 22px Courier New';
   CX.fillText(ci.grade, W/2, 258);
@@ -2206,13 +2206,13 @@ function drawEnding(){
   CX.fillStyle='#8fe8ff'; CX.font='bold 30px Courier New';
   CX.fillText('SINAPSIS RESTABLECIDA', W/2, H*0.52);
   CX.fillStyle='#cfe0ea'; CX.font='16px Courier New';
-  CX.fillText('El cortocircuito liberador abre una via de escape', W/2, H*0.52+36);
+  CX.fillText('El cortocircuito liberador abre una vía de escape', W/2, H*0.52+36);
   CX.fillText('hacia un nuevo circuito sano. Volt sigue viajando.', W/2, H*0.52+60);
   CX.fillStyle='#ffd166'; CX.font='18px Courier New';
   CX.fillText('ATP total: '+G.totalAtp, W/2, H*0.52+104);
   CX.fillStyle='#4a5f6d'; CX.font='13px Courier New';
-  CX.fillText('Gracias por jugar. Obra de ficcion interactiva.', W/2, H*0.52+140);
-  CX.fillText('Pulsa Enter para volver al menu', W/2, H-50);
+  CX.fillText('Gracias por jugar. Obra de ficción interactiva.', W/2, H*0.52+140);
+  CX.fillText('Pulsa Enter para volver al menú', W/2, H-50);
   CX.globalAlpha=1;
 }
 

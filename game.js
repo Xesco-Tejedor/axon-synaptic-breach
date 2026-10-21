@@ -558,8 +558,8 @@ LEVEL_BUILDERS[3][4] = function(L){ // JEFE 3
   L.name='JEFE: EL PRISMA DE LEWY'; L.len=1440; L.boss=3;
   L.plats.push(PL(-40,470,1520,80));
   L.plats.push(PL(-40,0,40,540)); L.plats.push(PL(1440,0,40,540));
-  L.plats.push(PL(660,120,120,18));
-  L.terms=[ {x:90,y:442,w:70,on:false,ch:0}, {x:1280,y:442,w:70,on:false,ch:0}, {x:685,y:92,w:70,on:false,ch:0} ];
+  L.plats.push(PL(40,270,110,18));
+  L.terms=[ {x:90,y:442,w:70,on:false,ch:0}, {x:1280,y:442,w:70,on:false,ch:0}, {x:75,y:242,w:70,on:false,ch:0} ];
   L.spawn={x:200,y:400};
 };
 

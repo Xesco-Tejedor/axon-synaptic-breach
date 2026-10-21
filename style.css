@@ -43,3 +43,12 @@ html, body {
 @media (pointer: coarse) {
   #touch.auto { display: block; }
 }
+
+/* Aviso de rotación: solo en móvil en vertical; se oculta al tocarlo */
+#rotateHint { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 30;
+  background: rgba(6,10,24,0.88); color: #cfe8ff; text-align: center;
+  font: 14px/1.5 'Courier New', monospace; padding: 10px 14px; }
+#rotateHint .rhSub { color: #7fa8c9; font-size: 11px; }
+@media (orientation: portrait) and (pointer: coarse) {
+  #rotateHint { display: block; }
+}

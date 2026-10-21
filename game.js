@@ -656,7 +656,7 @@ LEVEL_BUILDERS[4][4] = function(L){ // JEFE 4: torre vertical
   L.plats.push(PL(-40,0,40,2000)); L.plats.push(PL(960,0,40,2000));
   var ys=[1760,1650,1540,1430,1320,1210,1100,990,880,770,660,550,440,330];
   for (var i=0;i<ys.length;i++){
-    var xx=(i%2===0)?120:470; var ww=(i%3===0)?300:220;
+    var xx=(i%2===0)?120:470; var ww=300;
     var sp=PL(xx,ys[i],ww,18); sp.b4=true; L.plats.push(sp);
     atpLine(L,xx+40,ys[i]-40,3,50);
   }

@@ -274,7 +274,7 @@ var LEVEL_BUILDERS = { 1:[], 2:[], 3:[], 4:[], 5:[] };
 
 // ============ FASE 1: LA AUTOPISTA AXONAL ============
 LEVEL_BUILDERS[1][0] = function(L){ // 1.1 Plataformeo basico + polaridad en paredes
-  L.name='1.1 Nódulos de Ranvier'; L.len=3400;
+  L.name='1.1 Nódulos de Ranvier'; L.len=3920;
   L.plats.push(PL(-40,460,560,80));
   var x=620;
   var ys=[430,400,430,380,350,390,430];
@@ -320,7 +320,7 @@ LEVEL_BUILDERS[1][1] = function(L){ // 1.2 Plataformas moviles (gliales) + picos
   L.goal={x:x+240+340,y:392};
 };
 LEVEL_BUILDERS[1][2] = function(L){ // 1.3 Suelo quebradizo, inercia
-  L.name='1.3 Fisuras del Suelo'; L.len=3800;
+  L.name='1.3 Fisuras del Suelo'; L.len=4130;
   L.plats.push(PL(-40,460,460,80));
   var x=520;
   for (var i=0;i<6;i++){
@@ -342,7 +342,7 @@ LEVEL_BUILDERS[1][2] = function(L){ // 1.3 Suelo quebradizo, inercia
   L.goal={x:x+340,y:392};
 };
 LEVEL_BUILDERS[1][3] = function(L){ // 1.4 Carrera contra la onda
-  L.name='1.4 Onda de Despolarización'; L.len=4200;
+  L.name='1.4 Onda de Despolarización'; L.len=5120;
   L.flags.chase=true; L.waveX=-300;
   L.plats.push(PL(-40,460,500,80));
   var x=560;
@@ -419,7 +419,7 @@ LEVEL_BUILDERS[2][1] = function(L){ // 2.2 Linfocitos T aereos
   L.goal={x:x+340,y:392};
 };
 LEVEL_BUILDERS[2][2] = function(L){ // 2.3 Niebla de citoquinas
-  L.name='2.3 Niebla de Citoquinas'; L.len=3700;
+  L.name='2.3 Niebla de Citoquinas'; L.len=3760;
   L.plats.push(PL(-40,460,460,80));
   var x=540;
   zone(L,'fog',x-40,60,1500,480);
@@ -441,7 +441,7 @@ LEVEL_BUILDERS[2][2] = function(L){ // 2.3 Niebla de citoquinas
   L.goal={x:x+340,y:392};
 };
 LEVEL_BUILDERS[2][3] = function(L){ // 2.4 Mielina que se autodestruye (1.5s)
-  L.name='2.4 Mielina Inestable'; L.len=3900;
+  L.name='2.4 Mielina Inestable'; L.len=4530;
   L.plats.push(PL(-40,460,440,80));
   var x=540;
   for (var i=0;i<7;i++){
@@ -603,7 +603,7 @@ LEVEL_BUILDERS[4][1] = function(L){ // 4.2 Placas adhesivas
   L.goal={x:x+760+340,y:392};
 };
 LEVEL_BUILDERS[4][2] = function(L){ // 4.3 Memoria espacial (plataformas invisibles)
-  L.name='4.3 Memoria Espacial'; L.len=3800;
+  L.name='4.3 Memoria Espacial'; L.len=4180;
   L.plats.push(PL(-40,460,460,80));
   var x=560;
   for (var i=0;i<6;i++){
@@ -726,7 +726,7 @@ LEVEL_BUILDERS[5][2] = function(L){ // 5.3 Zonas de anoxia
   L.goal={x:x+540+380,y:392};
 };
 LEVEL_BUILDERS[5][3] = function(L){ // 5.4 Guantelete final (fragmentos que se extinguen)
-  L.name='5.4 Guantelete Final'; L.len=4200;
+  L.name='5.4 Guantelete Final'; L.len=4805;
   L.flags.tremor=true;
   L.plats.push(PL(-40,460,440,80));
   var x=540;

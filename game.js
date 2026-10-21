@@ -751,7 +751,7 @@ LEVEL_BUILDERS[5][4] = function(L){ // JEFE FINAL
   L.name='JEFE: EL SILENCIO ISQUÉMICO'; L.len=960; L.boss=5;
   L.plats.push(PL(-40,470,1040,80));
   L.plats.push(PL(-40,0,40,540)); L.plats.push(PL(960,0,40,540));
-  var pts=[ [180,380],[420,340],[660,380],[300,260],[560,240],[760,300],[120,300],[840,380] ];
+  var pts=[ [180,380],[420,350],[660,380],[300,260],[560,240],[760,300],[120,300],[840,380] ];
   L.bplats=[];
   for (var i=0;i<pts.length;i++){
     var p=PL(pts[i][0],pts[i][1],110,16,'bosslit'); p.lit=true; p.id=i;
@@ -1180,7 +1180,7 @@ function initBoss(kind){
   if (kind===2){ B.x=480; B.y=200; B.phaseB=1; }
   if (kind===3){ B.x=720; B.y=280; B.beams=0; }
   if (kind===4){ B.knotY=L.height+250; }
-  if (kind===5){ B.phaseB=0; B.core={x:480,y:150}; }
+  if (kind===5){ B.phaseB=0; B.core={x:480,y:165}; }
   G.banner=L.name; G.bannerT=3;
 }
 

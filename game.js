@@ -1588,7 +1588,7 @@ function drawPlayer(){
     var t=P.trail[i];
     CX.globalAlpha=Math.max(0,t.t)*0.7;
     CX.fillStyle=P.pol>0?'#ffd166':'#4dd8ff';
-    CX.beginPath(); CX.arc(t.x-G.camX,t.y-(L.vert?G.camY:0),6*t.t*2.4,0,7); CX.fill();
+    if (t.t>0){ CX.beginPath(); CX.arc(t.x-G.camX,t.y-(L.vert?G.camY:0),Math.max(0.5,6*t.t*2.4),0,7); CX.fill(); }
   }
   CX.globalAlpha=1;
   if (P.inv>0 && Math.floor(P.inv*12)%2===0) CX.globalAlpha=0.35;

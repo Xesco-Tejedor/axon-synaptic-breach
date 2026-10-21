@@ -792,6 +792,7 @@ function startLevel(ph, lv){
 
 function respawn(){
   P.x=P.spawnX; P.y=P.spawnY; P.vx=0; P.vy=0; P.grav=1; P.dead=false; P.deadT=0;
+  for (var ri=0;ri<L.plats.length;ri++){ var rp=L.plats[ri]; if (rp.k==='fragile'){ rp.gone=false; rp.step=0; } }
   P.hp=3; P.inv=2; P.o2=1; P.stuck=0; P.invertT=0; P.frozen=false; P.mash=0;
   if (L.flags.chase) L.waveX = Math.min(L.waveX, P.x-700);
   if (L.iontrap) L.iontrap.x = Math.min(L.iontrap.x, P.x-500);
@@ -879,7 +880,14 @@ function updatePlayer(dt){
       zFlip=inZone('flip');
   P.inSlow=!!zSlow; P.inFog=!!zFog;
   var targetGrav = zFlip?-1:1;
-  if (targetGrav!==P.grav){ P.grav=targetGrav; P.vy=0; sfx('zap'); }
+  if (targetGrav!==P.grav){ P.grav=targetGrav; P.vy=0; sfx('zap');
+    for (var zi=0;zi<L.plats.length;zi++){ var zp=L.plats[zi]; if (zp.gone) continue;
+      if (overlap(P,zp)){
+        var upOut=Math.abs((P.y+P.h)-zp.y), dnOut=Math.abs((zp.y+zp.h)-P.y);
+        P.y=(upOut<=dnOut)?zp.y-P.h:zp.y+zp.h;
+      }
+    }
+  }
 
   // Temblor de fase 3/5
   if (L.flags.tremor){

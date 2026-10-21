@@ -2256,5 +2256,7 @@ function frame(t){
 }
 // primer gesto activa audio
 window.addEventListener('pointerdown', function once(){ ensureAudio(); window.removeEventListener('pointerdown',once); });
+var _rh=document.getElementById('rotateHint');
+if (_rh) _rh.addEventListener('pointerdown', function(){ _rh.style.display='none'; });
 seedBg();
 requestAnimationFrame(frame);

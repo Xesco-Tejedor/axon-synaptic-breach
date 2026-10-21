@@ -656,7 +656,7 @@ LEVEL_BUILDERS[4][4] = function(L){ // JEFE 4: torre vertical
   L.plats.push(PL(-40,0,40,2000)); L.plats.push(PL(960,0,40,2000));
   var ys=[1760,1650,1540,1430,1320,1210,1100,990,880,770,660,550,440,330];
   for (var i=0;i<ys.length;i++){
-    var xx=(i%2===0)?120:520; var ww=(i%3===0)?300:220;
+    var xx=(i%2===0)?120:470; var ww=(i%3===0)?300:220;
     var sp=PL(xx,ys[i],ww,18); sp.b4=true; L.plats.push(sp);
     atpLine(L,xx+40,ys[i]-40,3,50);
   }
@@ -1179,7 +1179,7 @@ function initBoss(kind){
   if (kind===1){ B.x=480; B.y=180; }
   if (kind===2){ B.x=480; B.y=200; B.phaseB=1; }
   if (kind===3){ B.x=720; B.y=280; B.beams=0; }
-  if (kind===4){ B.knotY=L.height+120; }
+  if (kind===4){ B.knotY=L.height+250; }
   if (kind===5){ B.phaseB=0; B.core={x:480,y:150}; }
   G.banner=L.name; G.bannerT=3;
 }
@@ -1303,7 +1303,7 @@ function boss3(dt){
 
 // Jefe 4: Nudo Neurofibrilar (vertical)
 function resetBoss4(){
-  B.knotY=L.height+120;
+  B.knotY=L.height+250;
   for (var i=0;i<L.plats.length;i++){ var p=L.plats[i]; if (p.b4){ p.gone=false; p.trap=false; } }
   L.spikes=L.spikes.filter(function(s){ return !s.b4; });
 }

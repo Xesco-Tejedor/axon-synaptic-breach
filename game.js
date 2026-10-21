@@ -789,7 +789,7 @@ function startLevel(ph, lv){
 }
 
 function respawn(){
-  P.x=P.spawnX; P.y=P.spawnY; P.vx=0; P.vy=0; P.grav=1;
+  P.x=P.spawnX; P.y=P.spawnY; P.vx=0; P.vy=0; P.grav=1; P.dead=false; P.deadT=0;
   P.hp=3; P.inv=2; P.o2=1; P.stuck=0; P.invertT=0; P.frozen=false; P.mash=0;
   if (L.flags.chase) L.waveX = Math.min(L.waveX, P.x-700);
   if (L.iontrap) L.iontrap.x = Math.min(L.iontrap.x, P.x-500);

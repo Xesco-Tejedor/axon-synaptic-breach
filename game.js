@@ -654,10 +654,10 @@ LEVEL_BUILDERS[4][4] = function(L){ // JEFE 4: torre vertical
   L.vert=true; L.height=1900;
   L.plats.push(PL(-40,1860,1040,80));
   L.plats.push(PL(-40,0,40,2000)); L.plats.push(PL(960,0,40,2000));
-  var ys=[1760,1640,1520,1400,1280,1160,1040,920,800,680,560,440,330];
+  var ys=[1760,1650,1540,1430,1320,1210,1100,990,880,770,660,550,440,330];
   for (var i=0;i<ys.length;i++){
     var xx=(i%2===0)?120:520; var ww=(i%3===0)?300:220;
-    L.plats.push(PL(xx,ys[i],ww,18));
+    var sp=PL(xx,ys[i],ww,18); sp.b4=true; L.plats.push(sp);
     atpLine(L,xx+40,ys[i]-40,3,50);
   }
   L.plats.push(PL(300,240,360,18));
@@ -795,6 +795,7 @@ function respawn(){
   P.hp=3; P.inv=2; P.o2=1; P.stuck=0; P.invertT=0; P.frozen=false; P.mash=0;
   if (L.flags.chase) L.waveX = Math.min(L.waveX, P.x-700);
   if (L.iontrap) L.iontrap.x = Math.min(L.iontrap.x, P.x-500);
+  if (L.boss===4 && B) resetBoss4();
 }
 
 function hurt(n, kx){
@@ -922,9 +923,11 @@ function updatePlayer(dt){
   var maxRun = (IN.sprint&&P.canSprint?5.2:3.4) * (P.inSlow?0.6:1) * (P.stuck>0?0.35:1);
   var accel = P.onGround?0.55:0.35;
   if (!P.frozen){
-    if (IN.left){ P.vx-=accel; P.face=(inv>0)?-1:1; }
-    if (IN.right){ P.vx+=accel; P.face=(inv>0)?1:-1; }
-    if (!IN.left && !IN.right){ P.vx*=P.onGround?0.78:0.96; if (Math.abs(P.vx)<0.05) P.vx=0; }
+    var goL = (inv>0) ? IN.left : IN.right;
+    var goR = (inv>0) ? IN.right : IN.left;
+    if (goL){ P.vx-=accel; P.face=-1; }
+    if (goR){ P.vx+=accel; P.face=1; }
+    if (!goL && !goR){ P.vx*=P.onGround?0.78:0.96; if (Math.abs(P.vx)<0.05) P.vx=0; }
   }
   P.vx=clamp(P.vx,-maxRun,maxRun);
 
@@ -1299,26 +1302,31 @@ function boss3(dt){
 }
 
 // Jefe 4: Nudo Neurofibrilar (vertical)
+function resetBoss4(){
+  B.knotY=L.height+120;
+  for (var i=0;i<L.plats.length;i++){ var p=L.plats[i]; if (p.b4){ p.gone=false; p.trap=false; } }
+  L.spikes=L.spikes.filter(function(s){ return !s.b4; });
+}
 function boss4(dt){
   if (B.state==='fight') B.state='rise';
   var speed=26+countCut()*10;
-  B.knotY-=speed*dt;
+  B.knotY=Math.max(130,B.knotY-speed*dt);
   // destruye plataformas al pasar
   for (var i=0;i<L.plats.length;i++){
     var p=L.plats[i];
     if (p.gone||(p.k==='solid'&&p.y>1840)||p.h>40) continue;
-    if (p.y>B.knotY-30 && p.y<B.knotY+90 && !p.gone && p.y>200){
+    if (p.y>B.knotY-30 && p.y<B.knotY+90 && !p.gone && p.y>250){
       p.gone=true; burst(p.x+p.w/2,p.y,'#c9a2ff',8);
     }
   }
   // deforma plataformas cercanas en trampas
   for (var j=0;j<L.plats.length;j++){
     var q=L.plats[j];
-    if (!q.gone && q.k==='solid' && q.h<=40 && q.y<1850 && q.y>B.knotY-260 && q.y<B.knotY-40 && !q.trap){
-      q.trap=true; L.spikes.push({x:q.x+6,y:q.y-12,w:q.w-12,h:12});
+    if (!q.gone && q.k==='solid' && q.h<=40 && q.y<1850 && q.y>250 && q.y>B.knotY-260 && q.y<B.knotY-40 && !q.trap){
+      q.trap=true; L.spikes.push({x:q.x+6,y:q.y-12,w:q.w-12,h:12,b4:true});
     }
   }
-  if (P.y+P.h>B.knotY-40){ hurt(1,0); P.vy=-10; }
+  if (!P.dead && P.y+P.h > B.knotY-24){ hurt(1,0); P.vy=-10*P.grav; }
   G.camY=clamp(P.y-300, 0, L.height-H);
 }
 
